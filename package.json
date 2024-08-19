@@ -1,0 +1,23 @@
+{
+  "name": "basketball-scoreboard",
+  "version": "1.0.0",
+  "description": "A basketball Scoreboard Desktop",
+  "main": "script.js",
+  "scripts": {
+    "start": "node script.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/verren5/basketball-scoreboard.git"
+  },
+  "author": "Cabrini Verren",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/verren5/basketball-scoreboard/issues"
+  },
+  "homepage": "https://github.com/verren5/basketball-scoreboard#readme",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^4.19.2"
+  }
+}

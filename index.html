@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Scoreboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .scoreboard {
+        text-align: center;
+      }
+      .team {
+        font-size: 24px;
+        margin: 10px;
+      }
+      .buttons {
+        margin: 10px;
+      }
+      button {
+        padding: 10px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scoreboard">
+      <div class="team">
+        <h2 id="team1-name">Home</h2>
+        <p id="team1-score">0</p>
+        <input type="text" id="home-name" class="team-name-input" placeholder="Enter Home Team Name">
+        <div class="buttons">
+            <button onclick="updateTeamName(1)"> Update Team Name </button>
+            <button onclick="addPoint(1)">Add Point</button>
+            <button onclick="removePoint(1)">Remove point</button>
+      </div>
+      <div class="team">
+        <h2 id="team2-name">Away</h2>
+        <p id="team2-score">0</p>
+        <input type="text" id="away-name" class="team-name-input" placeholder="Enter Away Team Name">
+        <div class="buttons">
+            <button onclick="updateTeamName(2)"> Update Team Name </button>
+            <button onclick="addPoint(2)">Add Point</button>
+            <button onclick="removePoint(2)">Remove point</button>
+      </div>
+      <div class="buttons">
+         <button onclick="resetScore()">Reset Score</button>
+         <button onclick="resetTeamName()">Reset Teams Name</button> 
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
