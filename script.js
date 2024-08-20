@@ -1,3 +1,4 @@
+
 // Variables for the scoring
 let team1Score = 0;
 let team2Score = 0;
@@ -40,10 +41,6 @@ function resetScore() {
     updateScore();
 }
 
-// Export Scoreboard
-function exportScoreboard() {
-
-}
 
 // Change team name
 function updateTeamName(team) {
@@ -66,9 +63,61 @@ else if (team === 2) {
 
 //reset team name
 function resetTeamName() {
-    homeName = "home";
-    awayName = "away";
+    homeName = "Home";
+    awayName = "Guest";
     document.getElementById('team1-name').innerText = homeName;
     document.getElementById('team2-name').innerText = awayName;
+}
+
+
+// Export Scoreboard
+// You can now use ExcelJS directly without require
+async function exportScoreboard() {
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet('Scoreboard');
+    
+   const header = worksheet.addRow(['Team', 'Score']);
+    worksheet.addRow([homeName, team1Score]);
+    worksheet.addRow([awayName, team2Score]);
+    worksheet.addRow([,]);
+
+    header.eachCell((cell => {
+            cell.font = {bold: true};
+        }));
+
+    if (team1Score > team2Score) {
+        const winnerCell = worksheet.addRow(['Winner!']);
+        worksheet.addRow([homeName,team1Score]);
+
+        winnerCell.eachCell((cell => {
+            cell.font = {bold: true};
+        }));
+    }
+    else if (team2Score > team1Score) {
+        const winnerCell = worksheet.addRow(['Winner!']);
+        worksheet.addRow([awayName, team2Score]);
+
+        winnerCell.eachCell((cell => {
+            cell.font = { bold: true};
+        }));
+    }
+    else if (team1Score == team2Score) {
+        const tieCell = worksheet.addRow(['Tie!'])
+        tieCell.eachCell((cell => {
+            cell.font = { bold: true};
+        }));
+    }
+
+
+    const buffer = await workbook.xlsx.writeBuffer();
+    const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = homeName + '_' + awayName + '_scoreboard.xlsx';
+    link.click();
+
+    URL.revokeObjectURL(url);
 }
 
