@@ -106,5 +106,5 @@ input {
 }
 @font-face {
     font-family: 'Times-square';
-    src: url('/assets/times-square-font/TimesSquare-m105.ttf');
+    src: url('./assets/times-square-font/TimesSquare-m105.ttf');
 }
