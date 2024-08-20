@@ -56,12 +56,12 @@ h1 {
     font-size: 150px;
     padding: 0;
     margin: 10px 0;
-    font-family: 'Times-square';
+    font-family: 'Timessquare';
 }
 
 h2 {
     font-size: 100px;
-    font-family:'Times-square';
+    font-family:'Timessquare';
     margin: 0;
     padding: 0;
 }
@@ -102,9 +102,10 @@ input {
 
 @font-face {
     font-family: 'Ozone';
-    src: url('./assets/ozone-font/Ozone-xRRO.ttf');
+    src: url('./assets/ozone-font/Ozone-xRRO.ttf') format('truetype');
 }
+
 @font-face {
-    font-family: 'Times-square';
-    src: url('./assets/times-square-font/TimesSquare-m105.ttf');
+    font-family: 'Timessquare';
+    src: url('./assets/times-square-font/ts.ttf') format('truetype');
 }
