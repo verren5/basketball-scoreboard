@@ -29,26 +29,45 @@
       <div class="team">
         <h2 id="team1-name">Home</h2>
         <p id="team1-score">0</p>
-        <input type="text" id="home-name" class="team-name-input" placeholder="Enter Home Team Name">
+        <input
+          type="text"
+          id="home-name"
+          class="team-name-input"
+          placeholder="Enter Home Team Name"
+        />
         <div class="buttons">
-            <button onclick="updateTeamName(1)"> Update Team Name </button>
-            <button onclick="addPoint(1)">Add Point</button>
-            <button onclick="removePoint(1)">Remove point</button>
+          <button onclick="updateTeamName(1)">Update Team Name</button>
+          <button onclick="addPoint(1)">Add Point</button>
+          <button onclick="removePoint(1)">Remove point</button>
+        </div>
       </div>
+      <!-- Closing the first team div -->
+
       <div class="team">
-        <h2 id="team2-name">Away</h2>
+        <h2 id="team2-name">Guest</h2>
         <p id="team2-score">0</p>
-        <input type="text" id="away-name" class="team-name-input" placeholder="Enter Away Team Name">
+        <input
+          type="text"
+          id="away-name"
+          class="team-name-input"
+          placeholder="Enter Away Team Name"
+        />
         <div class="buttons">
-            <button onclick="updateTeamName(2)"> Update Team Name </button>
-            <button onclick="addPoint(2)">Add Point</button>
-            <button onclick="removePoint(2)">Remove point</button>
+          <button onclick="updateTeamName(2)">Update Team Name</button>
+          <button onclick="addPoint(2)">Add Point</button>
+          <button onclick="removePoint(2)">Remove point</button>
+        </div>
       </div>
+      <!-- Closing the second team div -->
+
       <div class="buttons">
-         <button onclick="resetScore()">Reset Score</button>
-         <button onclick="resetTeamName()">Reset Teams Name</button> 
+        <button onclick="resetScore()">Reset Score</button>
+        <button onclick="resetTeamName()">Reset Teams Name</button>
+        <button onclick="exportScoreboard()">Export Scoreboard</button>
       </div>
     </div>
+    <!-- Closing the scoreboard div -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
