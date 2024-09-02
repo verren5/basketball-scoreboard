@@ -16,6 +16,6 @@ You can try out the project here: [Basketball Scoreboard](https://verren5.github
 This project utilizes the following third-party libraries:
 
 - **ExcelJS v4.3.0** - [ExcelJS Repository](https://github.com/exceljs/exceljs)
-  - Licensed under the [MIT License](https://opensource.org/licenses/MIT)
-  - CDN: [ExcelJS v4.3.0 on CDNJS](https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js)
+- Licensed under the [MIT License](https://opensource.org/licenses/MIT)
+- CDN: [ExcelJS v4.3.0 on CDNJS](https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js)
 
