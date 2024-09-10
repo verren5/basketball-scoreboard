@@ -36,7 +36,7 @@
           <img src="./assets/logo.png" alt="Logo" class="logo" />
           <div class="shotclock-box">
             <div class="shotClock">
-              <h1 id="shotClockTimer">24</h1>
+              <h4 id="shotClockTimer">24</h4>
             </div>
           </div>
         </div>
@@ -63,27 +63,39 @@
     <div class="other">
       <div class="buttons">
         <!-- Score Buttons-->
-        <button onclick="resetScore()">Reset Score</button>
-        <button onclick="resetTeamName()">Reset Teams Name</button>
-        <button onclick="exportScoreboard()">Export Scoreboard</button>
+        <div class="scoreBoardSetter">
+          <button onclick="resetScore()">Reset Score</button>
+          <button onclick="resetTeamName()">Reset Teams Name</button>
+          <button onclick="exportScoreboard()">Export Scoreboard</button>
+        </div>
         <!-- Time Buttons-->
-        <button onclick="startTimer()">Start</button>
-        <button onclick="resumeTimer()">Resume</button>
-        <button onclick="pauseTimer()">Pause</button>
-        <button onclick="resetTimer()">Reset</button>
-        <br>
-        <button onclick="addMinute()">+1 Min</button>
-        <button onclick="subtractMinute()">-1 Min</button>
-        <button onclick="addSecond()">+1 Sec</button>
-        <button onclick="subtractSecond()">-1 Sec</button>
+        <div class="timeSetter">
+          <div class="container">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="resumeTimer()">Resume</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+          </div>
+          <div class="container">
+            <button onclick="addMinute()">+1 Min</button>
+            <button onclick="subtractMinute()">-1 Min</button>
+            <button onclick="addSecond()">+1 Sec</button>
+            <button onclick="subtractSecond()">-1 Sec</button>
+          </div>
+        </div>
         <!-- Shot Clock Buttons-->
-        <button onclick="startShotClock()">Start</button>
-        <button onclick="pauseShotClock()">Pause</button>
-        <button onclick="resetTo24()">Reset to 24s</button>
-        <button onclick="resetTo14()">Reset to 14s</button>
-        <br>
-        <button onclick="addSecondShotClock()">+1 Sec</button>
-        <button onclick="subtractSecondShotClock()">-1 Sec</button>
+        <div class="shotClockSetter">
+          <div class="container">
+           <button onclick="startShotClock()">Start</button>
+            <button onclick="pauseShotClock()">Pause</button>
+            <button onclick="resetTo24()">Reset to 24s</button>
+            <button onclick="resetTo14()">Reset to 14s</button>
+          </div>
+          <div class="container">
+            <button onclick="addSecondShotClock()">+1 Sec</button>
+            <button onclick="subtractSecondShotClock()">-1 Sec</button>
+          </div>
+        </div>
 
       </div>
     </div>

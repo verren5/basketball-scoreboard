@@ -17,8 +17,8 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 260px; /* Adjust width as needed */
-    height: 18%; /* Height of the box */
+    width: 400px; /* Adjust width as needed */
+    height: 20%; /* Height of the box */
     margin: 0px;
     z-index: 1; /* Keep above other content */
 }
@@ -33,8 +33,8 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 30px; /* Adjust width as needed */
-    height: 30px; /* Height of the box */
+    width: 60px; /* Adjust width as needed */
+    height: 40px; /* Height of the box */
     margin: 0px;
     z-index: 1; /* Keep above other content */
 }
@@ -45,7 +45,7 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 90%;
-    height: 600px; /* STILL NEEDS TO BE MADE DYNAMIC */
+    height: 700px; /* STILL NEEDS TO BE MADE DYNAMIC */
     text-align: center;
     background-color: #93E1D8;
     box-shadow: 10px 10px #96a9a7;
@@ -113,24 +113,31 @@ body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 7rem;
     padding: 0;
     margin: 10px 0;
     font-family: 'Timessquare';
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-family: 'Timessquare';
     margin: 0;
     padding: 0;
 }
 
-h3 { /*  changes need to be made for the sizing */
-    font-size: 100px;
+h3 {
+    font-size: 10rem;
     padding: 0;
     margin: 10px 0;
     font-family: 'Timessquare'
+}
+
+h4 {
+    font-size: 5rem;
+    font-family: 'Timessquare';
+    margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -139,6 +146,60 @@ h3 { /*  changes need to be made for the sizing */
     color: #2E3089;
     font-family: 'Ozone';
     margin: 10px 0;
+}
+
+.scoreBoardSetter {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 2rem;
+    margin: 20px;
+    opacity: 0.88;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    z-index: 1;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.timeSetter {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 2rem;
+    margin: 20px;
+    opacity: 0.88;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    z-index: 1;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.shotClockSetter {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    font-size: 2rem;
+    margin: 20px;
+    opacity: 0.88;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    z-index: 1;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .buttons {
