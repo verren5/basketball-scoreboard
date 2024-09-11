@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Scoreboard Controls</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">Controls</div>
+    <div class="other">
+      <div class="buttons">
+        <div class="scoreBoardSetter">
+          <button onclick="resetScore()">Reset Score</button>
+          <button onclick="resetTeamName()">Reset Teams Name</button>
+          <button onclick="exportScoreboard()">Export Scoreboard</button>
+        </div>
+        <div class="timeSetter">
+          <div class="container">
+            <button onclick="startTimer()">Start</button>
+            <button onclick="resumeTimer()">Resume</button>
+            <button onclick="pauseTimer()">Pause</button>
+            <button onclick="resetTimer()">Reset</button>
+          </div>
+          <div class="container">
+            <button onclick="addMinute()">+1 Min</button>
+            <button onclick="subtractMinute()">-1 Min</button>
+            <button onclick="addSecond()">+1 Sec</button>
+            <button onclick="subtractSecond()">-1 Sec</button>
+          </div>
+        </div>
+        <div class="shotClockSetter">
+          <div class="container">
+            <button onclick="startShotClock()">Start</button>
+            <button onclick="pauseShotClock()">Pause</button>
+            <button onclick="resetTo24()">Reset to 24s</button>
+            <button onclick="resetTo14()">Reset to 14s</button>
+          </div>
+          <div class="container">
+            <button onclick="addSecondShotClock()">+1 Sec</button>
+            <button onclick="subtractSecondShotClock()">-1 Sec</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="script.js"></script>
+    <script src="timer.js"></script>
+    <script src="shot-clock.js"></script>
+  </body>
+</html>
