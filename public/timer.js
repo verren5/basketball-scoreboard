@@ -1,3 +1,7 @@
+
+const socket = new WebSocket(`ws://${window.location.host}`);
+
+
 let timerDisplay = document.getElementById('timer');
 let totalTime = 0; // in seconds
 let countdown;
@@ -11,6 +15,12 @@ function formatTime(seconds) {
 
 function updateDisplay() {
   timerDisplay.textContent = formatTime(totalTime);
+
+  // Send updated timer to the WebSocket server
+  socket.send(JSON.stringify({
+    type: 'updateTimer',
+    timer: formatTime(totalTime)
+  }));
 }
 
 function startTimer() {
@@ -64,3 +74,4 @@ function subtractSecond() {
   else totalTime = 0;
   updateDisplay();
 }
+

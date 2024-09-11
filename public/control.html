@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Scoreboard Controls</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script defer src="control.js"></script>
+  </head>
+  <body>
+    <div class="header">Controls</div>
+    <div class="other">
+      <div class="buttons">
+        <div class="scoreBoardSetter">
+          <button id="add-team1-point">Add Point to Team 1</button>
+          <button id="subtract-team1-point">Subtract Point from Team 1</button>
+          <button id="add-team2-point">Add Point to Team 2</button>
+          <button id="subtract-team2-point">Subtract Point from Team 2</button>
+          <button onclick="resetScore()">Reset Score</button>
+          <button onclick="exportScoreboard()">Export Scoreboard</button>
+        </div>
+        <div class="teamNameSetter">
+          <div>
+            <input type="text" id="team1-name-input" placeholder="Team 1 Name" />
+            <button id="update-team1-name">Update Team 1 Name</button>
+          </div>
+          <div>
+            <input type="text" id="team2-name-input" placeholder="Team 2 Name" />
+            <button id="update-team2-name">Update Team 2 Name</button>
+          </div>
+          <button onclick="resetTeamName()">Reset Team Names</button>
+        </div>
+        <div class="timeSetter">
+          <div class="container">
+            <button onclick="startTimer()">Start Timer</button>
+            <button onclick="resumeTimer()">Resume Timer</button>
+            <button onclick="pauseTimer()">Pause Timer</button>
+            <button onclick="resetTimer()">Reset Timer</button>
+          </div>
+          <div class="container">
+            <button onclick="addMinute()">+1 Min</button>
+            <button onclick="subtractMinute()">-1 Min</button>
+            <button onclick="addSecond()">+1 Sec</button>
+            <button onclick="subtractSecond()">-1 Sec</button>
+          </div>
+        </div>
+        <div class="shotClockSetter">
+          <div class="container">
+            <button onclick="startShotClock()">Start Shot Clock</button>
+            <button onclick="pauseShotClock()">Pause Shot Clock</button>
+            <button onclick="resetTo24()">Reset to 24s</button>
+            <button onclick="resetTo14()">Reset to 14s</button>
+          </div>
+          <div class="container">
+            <button onclick="addSecondShotClock()">+1 Sec</button>
+            <button onclick="subtractSecondShotClock()">-1 Sec</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

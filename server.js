@@ -7,19 +7,28 @@ const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 
-// Serve static files (HTML, CSS, JS)
-app.use(express.static(path.join(__dirname)));
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Handler for WebSocket connections
+// Define routes for your HTML pages
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/display.html'));
+});
+
+app.get('/control', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/control.html'));
+});
+
+// WebSocket server
 wss.on('connection', (ws) => {
   console.log('Client connected');
 
   ws.on('message', (message) => {
-    console.log(`Received: ${message}`);
+    console.log('Received message:', message);
 
-    // Broadcast the message to all clients except the sender
+    // Broadcast received message to all clients
     wss.clients.forEach((client) => {
-      if (client !== ws && client.readyState === WebSocket.OPEN) {
+      if (client.readyState === WebSocket.OPEN) {
         client.send(message);
       }
     });
@@ -30,8 +39,7 @@ wss.on('connection', (ws) => {
   });
 });
 
-
-const PORT = process.env.PORT || 8080;
+const PORT = 3000;
 server.listen(PORT, () => {
-  console.log(`Server is listening on http://localhost:${PORT}`);
+  console.log(`Server is listening on port ${PORT}`);
 });
