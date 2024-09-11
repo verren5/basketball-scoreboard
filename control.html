@@ -43,9 +43,39 @@
         </div>
       </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
-    <script src="script.js"></script>
-    <script src="timer.js"></script>
-    <script src="shot-clock.js"></script>
+
+    <script>
+      const socket = new WebSocket(`ws://${window.location.host}`);
+
+      function updateScoreboard() {
+        const data = {
+          type: 'update',
+          team1Name: document.getElementById('home-name').value || 'Home',
+          team2Name: document.getElementById('away-name').value || 'Guest',
+          team1Score: document.getElementById('team1-score').innerText,
+          team2Score: document.getElementById('team2-score').innerText,
+          timer: document.getElementById('timer').innerText,
+          shotClockTimer: document.getElementById('shotClockTimer').innerText,
+        };
+        socket.send(JSON.stringify(data));
+      }
+
+      // Call updateScoreboard() in each relevant function
+      function addPoint(team) {
+        const scoreId = team === 1 ? 'team1-score' : 'team2-score';
+        let score = parseInt(document.getElementById(scoreId).innerText, 10);
+        score += 1;
+        document.getElementById(scoreId).innerText = score;
+        updateScoreboard();
+      }
+
+      function resetScore() {
+        document.getElementById('team1-score').innerText = '0';
+        document.getElementById('team2-score').innerText = '0';
+        updateScoreboard();
+      }
+
+      // Repeat for other control functions...
+    </script>
   </body>
 </html>

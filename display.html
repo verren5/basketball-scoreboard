@@ -35,8 +35,21 @@
         </div>
       </div>
     </div>
-    <script src="script.js"></script>
-    <script src="timer.js"></script>
-    <script src="shot-clock.js"></script>
+    
+    <script>
+      const socket = new WebSocket(`ws://${window.location.host}`);
+
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === 'update') {
+          document.getElementById('team1-name').innerText = data.team1Name;
+          document.getElementById('team2-name').innerText = data.team2Name;
+          document.getElementById('team1-score').innerText = data.team1Score;
+          document.getElementById('team2-score').innerText = data.team2Score;
+          document.getElementById('timer').innerText = data.timer;
+          document.getElementById('shotClockTimer').innerText = data.shotClockTimer;
+        }
+      };
+    </script>
   </body>
 </html>
