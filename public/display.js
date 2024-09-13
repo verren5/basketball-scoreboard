@@ -14,22 +14,35 @@ socket.onclose = () => {
 
 // Handle incoming WebSocket messages
 socket.addEventListener('message', (event) => {
-    const data = JSON.parse(event.data);
-    console.log('Received data in display page:', data);
+    // Check if the data is a Blob
+    if (event.data instanceof Blob) {
+        const reader = new FileReader();
+        
+        reader.onload = function() {
+            try {
+                // Convert Blob to text
+                const text = reader.result;
+                console.log('Initial Text (Blob):', text);
+                
+                // Convert the text as JSON
+                const data = JSON.parse(text);
+                console.log('Parsed data:', data);
 
-    if (data.type === 'update') {
-        document.getElementById('team1-name').innerText = data.team1Name;
-        document.getElementById('team2-name').innerText = data.team2Name;
-        document.getElementById('team1-score').innerText = data.team1Score;
-        document.getElementById('team2-score').innerText = data.team2Score;
-        document.getElementById('timer').innerText = data.timer;
-        document.getElementById('shotClockTimer').innerText = data.shotClockTimer;
-    } else if (data.type === 'updateName') {
-        if (data.team1Name) {
-            document.getElementById('team1-name').innerText = data.team1Name;
-        }
-        if (data.team2Name) {
-            document.getElementById('team2-name').innerText = data.team2Name;
-        }
+                // Handle the parsed data
+                if (data.type == 'updateName1') {
+                    document.getElementById('team1-name').innerText = data.team1Name;
+                } 
+                if (data.type == 'updateName2') {
+                    document.getElementById('team2-name').innerText = data.team2Name;
+                }
+            } catch (error) {
+                console.error('Error parsing message:', error);
+            }
+        };
+        
+        reader.readAsText(event.data);
+    } else {
+        // Handle other types of data
+        console.error('Unexpected data type:', typeof event.data);
     }
 });

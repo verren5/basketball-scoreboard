@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Basketball Scoreboard Controls</title>
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="control.js"></script>
   </head>
   <body>
     <div class="header">Controls</div>
@@ -21,12 +20,24 @@
         </div>
         <div class="teamNameSetter">
           <div>
-            <input type="text" id="team1-name-input" placeholder="Team 1 Name" />
-            <button id="update-team1-name">Update Team 1 Name</button>
+            <input
+              type="text"
+              id="team1-name-input"
+              placeholder="Team 1 Name"
+            />
+            <button id="update-team1-name" onclick="updateTeamName(1)">
+              Update Team 1 Name
+            </button>
           </div>
           <div>
-            <input type="text" id="team2-name-input" placeholder="Team 2 Name" />
-            <button id="update-team2-name">Update Team 2 Name</button>
+            <input
+              type="text"
+              id="team2-name-input"
+              placeholder="Team 2 Name"
+            />
+            <button id="update-team2-name" onclick="updateTeamName(2)">
+              Update Team 2 Name
+            </button>
           </div>
           <button onclick="resetTeamName()">Reset Team Names</button>
         </div>
@@ -58,5 +69,6 @@
         </div>
       </div>
     </div>
+    <script src="control.js"></script>
   </body>
 </html>

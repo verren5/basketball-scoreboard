@@ -12,6 +12,10 @@ socket.onclose = () => {
     console.log('WebSocket connection closed');
 };
 
+socket.onmessage = function (event) {
+    console.log("Data from server: ", event.data);
+}
+
 // Variables for the scoring
 let team1Score = 0;
 let team2Score = 0;
@@ -78,23 +82,37 @@ function resetScore() {
 
 // Update team names
 function updateTeamName(team) {
+    let displayName;
     if (team === 1) {
+        displayName = document.getElementById('team1-name');
         const newName = document.getElementById('team1-name-input').value;
         if (newName) {
             homeName = newName;
-            document.getElementById('team1-name').innerText = homeName;
+            //check display name
+            if(displayName) {
+                displayName.innerText = homeName;
+            } else {
+                console.error("No display name")
+            }
             socket.send(JSON.stringify({
-                type: 'updateName',
+                type: 'updateName1',
                 team1Name: homeName
             }));
         }
     } else if (team === 2) {
+        displayName = document.getElementById('team2-name');
         const newName = document.getElementById('team2-name-input').value;
         if (newName) {
             awayName = newName;
-            document.getElementById('team2-name').innerText = awayName;
+            //check display name
+            if (displayName) {
+                displayName.innerText = awayName;
+            }else {
+                console.error("No display name")
+            }
+            
             socket.send(JSON.stringify({
-                type: 'updateName',
+                type: 'updateName2',
                 team2Name: awayName
             }));
         }
@@ -162,5 +180,3 @@ document.getElementById('add-team2-point').addEventListener('click', () => addPo
 document.getElementById('subtract-team2-point').addEventListener('click', () => removePoint(2));
 document.getElementById('update-team1-name').addEventListener('click', () => updateTeamName(1));
 document.getElementById('update-team2-name').addEventListener('click', () => updateTeamName(2));
-document.getElementById('reset-team-names').addEventListener('click', resetTeamName);
-document.getElementById('export-scoreboard').addEventListener('click', exportScoreboard);
