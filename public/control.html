@@ -16,7 +16,9 @@
           <button id="add-team2-point">Add Point to Team 2</button>
           <button id="subtract-team2-point">Subtract Point from Team 2</button>
           <button id="resetScore" onclick="resetScore()">Reset Score</button>
-          <button onclick="exportScoreboard()">Export Scoreboard</button>
+          <button id="exportScoreboard" onclick="exportScoreboard()">
+            Export Scoreboard
+          </button>
         </div>
         <div class="teamNameSetter">
           <div>
@@ -71,6 +73,8 @@
         </div>
       </div>
     </div>
+    <!--ExcelJS Licensed under the MIT License-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
     <script src="control.js"></script>
   </body>
 </html>

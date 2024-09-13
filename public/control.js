@@ -231,3 +231,4 @@ document.getElementById('update-team1-name').addEventListener('click', () => upd
 document.getElementById('update-team2-name').addEventListener('click', () => updateTeamName(2));
 document.getElementById('resetTeamName').addEventListener('click', () => resetTeamName());
 document.getElementById('resetScore').addEventListener('click', () => resetScore());
+document.getElementById('exportScoreboard').addEventListener('click', () =>exportScoreboard());
