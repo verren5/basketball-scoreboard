@@ -35,6 +35,13 @@ socket.addEventListener('message', (event) => {
                 if (data.type == 'updateName2') {
                     document.getElementById('team2-name').innerText = data.team2Name;
                 }
+                if (data.type =='team1Point') {
+                    document.getElementById('team1-score').innerText = data.team1Score;
+
+                }
+                if (data.type == 'team2Point') {
+                    document.getElementById('team2-score').innerText = data.team2Score;
+                }
             } catch (error) {
                 console.error('Error parsing message:', error);
             }

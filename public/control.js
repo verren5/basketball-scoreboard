@@ -38,7 +38,7 @@ function updateScoreboard() {
     console.log('Sending update:', data);
     socket.send(JSON.stringify(data));
 }
-
+/*
 // Update score display and send score update via WebSocket
 function updateScore() {
     document.getElementById('team1-score').innerText = team1Score;
@@ -52,32 +52,64 @@ function updateScore() {
     console.log('Sending score update:', data);
     socket.send(JSON.stringify(data));
 }
+*/
 
 // Add point to team score
 function addPoint(team) {
+    let displayScore;
     if (team === 1) {
+        displayScore = document.getElementById('team1-score');
         team1Score += 1;
-    } else if (team === 2) {
+            socket.send(JSON.stringify({
+                type: 'team1Point',
+                team1Score
+            }));
+        }
+    if (team === 2) {
+        displayScore = document.getElementById('team2-score');
         team2Score += 1;
-    }
-    updateScore();
+            socket.send(JSON.stringify({
+                type: 'team2Point',
+                team2Score
+            }));
+        }
 }
 
 // Remove point from team score
 function removePoint(team) {
+    let displayScore;
     if (team === 1) {
+        displayScore = document.getElementById('team1-score');
         team1Score -= 1;
-    } else if (team === 2) {
+            socket.send(JSON.stringify({
+                type: 'team1Point',
+                team1Score
+            }));
+        }
+    if (team === 2) {
+        displayScore = document.getElementById('team2-score');
         team2Score -= 1;
-    }
-    updateScore();
+            socket.send(JSON.stringify({
+                type: 'team2Point',
+                team2Score
+            }));
+        }
 }
 
 // Reset scores
 function resetScore() {
     team1Score = 0;
     team2Score = 0;
-    updateScore();
+    socket.send(JSON.stringify({
+        type: 'team1Point',
+        team1Score
+    }));
+    
+    socket.send(JSON.stringify({
+        type: 'team2Point',
+        team2Score
+    }));
+    
 }
 
 // Update team names
@@ -198,3 +230,4 @@ document.getElementById('subtract-team2-point').addEventListener('click', () => 
 document.getElementById('update-team1-name').addEventListener('click', () => updateTeamName(1));
 document.getElementById('update-team2-name').addEventListener('click', () => updateTeamName(2));
 document.getElementById('resetTeamName').addEventListener('click', () => resetTeamName());
+document.getElementById('resetScore').addEventListener('click', () => resetScore());
