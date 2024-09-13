@@ -123,8 +123,25 @@ function updateTeamName(team) {
 function resetTeamName() {
     homeName = "Home";
     awayName = "Guest";
-    document.getElementById('team1-name').innerText = homeName;
-    document.getElementById('team2-name').innerText = awayName;
+
+    // Check if the team name have been updated
+    let placeholderTeam1 = document.getElementById('team1-name-input').value;
+    let placeholderTeam2 = document.getElementById('team2-name-input').value;
+
+    if (placeholderTeam1) {
+        placeholderTeam1 = homeName;
+        socket.send(JSON.stringify({
+            type: 'updateName1',
+            team1Name: placeholderTeam1
+        }));
+    }
+    if (placeholderTeam2) {
+        placeholderTeam2 = awayName;
+        socket.send(JSON.stringify({
+            type: 'updateName2',
+            team2Name: placeholderTeam2
+        }));
+    }
 }
 
 // Export scoreboard to Excel
@@ -180,3 +197,4 @@ document.getElementById('add-team2-point').addEventListener('click', () => addPo
 document.getElementById('subtract-team2-point').addEventListener('click', () => removePoint(2));
 document.getElementById('update-team1-name').addEventListener('click', () => updateTeamName(1));
 document.getElementById('update-team2-name').addEventListener('click', () => updateTeamName(2));
+document.getElementById('resetTeamName').addEventListener('click', () => resetTeamName());
