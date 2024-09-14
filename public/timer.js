@@ -1,77 +1,105 @@
 
-const socket = new WebSocket(`ws://${window.location.host}`);
-
-
+/*const socket = new WebSocket(`ws://${window.location.host}`);
 let timerDisplay = document.getElementById('timer');
 let totalTime = 0; // in seconds
 let countdown;
 let isPaused = false;
+*/
+class Timer {
 
-function formatTime(seconds) {
+constructor(displayElement) {
+  this.displayElement = displayElement;
+  this.totalTime = 0;
+  this.countdown = null;
+  this.isPaused = false;
+}
+
+ formatTime(seconds) {
   let minutes = Math.floor(seconds / 60);
   let secs = seconds % 60;
   return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
 }
 
-function updateDisplay() {
-  timerDisplay.textContent = formatTime(totalTime);
-
-  // Send updated timer to the WebSocket server
-  socket.send(JSON.stringify({
-    type: 'updateTimer',
-    timer: formatTime(totalTime)
-  }));
+ updateDisplay() {
+  this.displayElement.textContent = this.formatTime(this.totalTime);
 }
 
-function startTimer() {
-  if (countdown || totalTime <= 0) return;
-  countdown = setInterval(() => {
-    if (!isPaused && totalTime > 0) {
-      totalTime--;
-      updateDisplay();
+ startTimer() {
+  /*
+  if (this.countdown || this.totalTime <= 0) return;
+  this.isPaused = false;
+  this.countdown = setInterval(() => {
+    if (!this.isPaused && this.totalTime > 0) {
+      this.totalTime--;
+      this.updateDisplay();
     }
-    if (totalTime <= 0) {
-      clearInterval(countdown);
-      countdown = null;
+    if (this.totalTime <= 0) {
+      clearInterval(this.countdown);
+      this.countdown = null;
+      this.updateDisplay();
     }
   }, 1000);
+  */
+  if (this.countdown || this.totalTime <= 0) {
+    console.log('Timer not started. Countdown running or totalTime <= 0');
+    console.log ("totalTime: " + this.totalTime + "countdown: " + this.countdown); // check totaltime and countdown
+    return;
+}
+console.log('Timer started');
+this.isPaused = false;
+this.countdown = setInterval(() => {
+    if (!this.isPaused && this.totalTime > 0) {
+        this.totalTime--;
+        this.updateDisplay();
+    }
+    if (this.totalTime <= 0) {
+        clearInterval(this.countdown);
+        this.countdown = null;
+        this.updateDisplay(); // Final update at zero
+    }
+}, 1000);
+}
+ resumeTimer() {
+  if (!this.countdown) {
+    this.startTimer();
+  }
+  else {
+  this.isPaused = false;}
 }
 
-function resumeTimer() {
-  isPaused = false;
-  startTimer();
+ pauseTimer() {
+  this.isPaused = true;
 }
 
-function pauseTimer() {
-  isPaused = true;
+ resetTimer() {
+  clearInterval(this.countdown);
+  this.countdown = null;
+  this.isPaused = false;
+  this.totalTime = 0;
+  this.updateDisplay();
 }
 
-function resetTimer() {
-  clearInterval(countdown);
-  countdown = null;
-  totalTime = 0;
-  updateDisplay();
+ addMinute() {
+  this.totalTime += 60;
+  this.updateDisplay();
 }
 
-function addMinute() {
-  totalTime += 60;
-  updateDisplay();
+ subtractMinute() {
+  if (this.totalTime >= 60) this.totalTime -= 60;
+  else this.totalTime = 0;
+  this.updateDisplay();
 }
 
-function subtractMinute() {
-  if (totalTime >= 60) totalTime -= 60;
-  else totalTime = 0;
-  updateDisplay();
+ addSecond() {
+  this.totalTime += 1;
+  this.updateDisplay();
 }
 
-function addSecond() {
-  totalTime += 1;
-  updateDisplay();
+ subtractSecond() {
+  if (this.totalTime >= 1) this.totalTime -= 1;
+  else this.totalTime = 0;
+  this.updateDisplay();
+}
 }
 
-function subtractSecond() {
-  if (totalTime >= 1) totalTime -= 1;
-  else totalTime = 0;
-  updateDisplay();
-}
-
+export default Timer;

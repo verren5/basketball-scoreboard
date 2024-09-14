@@ -1,3 +1,8 @@
+import Timer from './timer.js';
+
+const timerDisplay = document.getElementById('timerDisp');
+const timer = new Timer(timerDisplay); // Create a timer instance
+
 const socket = new WebSocket(`ws://${window.location.host}`);
 
 socket.onopen = () => {
@@ -41,6 +46,31 @@ socket.addEventListener('message', (event) => {
                 }
                 if (data.type == 'team2Point') {
                     document.getElementById('team2-score').innerText = data.team2Score;
+                }
+
+                if (data.type == 'start') {
+                    timer.startTimer();
+                }
+                if (data.type =='pause') {
+                    timer.pauseTimer();
+                }
+                if (data.type == 'reset') {
+                    timer.resetTimer();
+                }
+                if (data.type == 'resume') {
+                    timer.resumeTimer();
+                }
+                if (data.type == 'addMinute') {
+                    timer.addMinute();
+                }
+                if (data.type == 'subtractMinute') {
+                    timer.subtractMinute();
+                }
+                if (data.type == 'addSecond') {
+                    timer.addSecond();
+                }
+                if (data.type == 'subtractSecond') {
+                    timer.subtractSecond();
                 }
             } catch (error) {
                 console.error('Error parsing message:', error);

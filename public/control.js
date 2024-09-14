@@ -232,3 +232,34 @@ document.getElementById('update-team2-name').addEventListener('click', () => upd
 document.getElementById('resetTeamName').addEventListener('click', () => resetTeamName());
 document.getElementById('resetScore').addEventListener('click', () => resetScore());
 document.getElementById('exportScoreboard').addEventListener('click', () =>exportScoreboard());
+
+
+//timer
+document.getElementById('startButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'start' })); 
+});
+
+document.getElementById('pauseButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'pause' })); 
+});
+
+document.getElementById('resetButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'reset' })); 
+});
+
+document.getElementById('resumeButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resume' })); 
+});
+document.getElementById('addMinute').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'addMinute' })); 
+});
+document.getElementById('addSecond').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'addSecond' })); 
+});
+document.getElementById('subtractMinute').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'subtractMinute' })); 
+});
+document.getElementById('subtractSecond').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'subtractSecond' })); 
+});
+
