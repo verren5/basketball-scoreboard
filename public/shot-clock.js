@@ -1,67 +1,76 @@
 
-const socket = new WebSocket(`ws://${window.location.host}`);
+class ShotClock {
 
-
-let shotClockDisplay = document.getElementById('shotClockTimer');
-let totalShotTime = 24; // shot clock starts at 24 seconds
-let countdownShotClock;
-let isPausedShotClock = false;
-
-function updateShotClockDisplay() {
-  shotClockDisplay.textContent = totalShotTime;
-
-  // Send updated shot clock to the WebSocket server
-  socket.send(JSON.stringify({
-    type: 'updateShotClock',
-    shotClock: totalShotTime
-  }));
-}
-
-function startShotClock() {
-  if (countdownShotClock || totalShotTime <= 0) return;
-  countdownShotClock = setInterval(() => {
-    if (!isPausedShotClock && totalShotTime > 0) {
-      totalShotTime--;
-      updateShotClockDisplay();
+  constructor(displayElementSC) {
+    this.displayElementSC = displayElementSC;
+    this.totalTimeSC = 24;
+    this.countdownSC = null;
+    this.isPausedSC = false;
+  }
+  
+   updateDisplaySC() {
+    this.displayElementSC.textContent = this.totalTimeSC;
+  }
+  
+   startSC() {
+    if (this.countdownSC || this.totalTimeSC <= 0) {
+      console.log('Shotclock not started. CountdownSC running or totalTimeSC <= 0');
+      console.log ("totalTimeSC: " + this.totalTimeSC + "countdownSC: " + this.countdownSC); // check totaltimeSC and countdownSC
+      return;
     }
-    if (isPausedShotClock && totalShotTime > 0) {
-      isPausedShotClock = false;
+
+      console.log('ShotClock started');
+
+      this.isPausedSC = false;
+      this.countdownSC = setInterval(() => {
+          if (!this.isPausedSC && this.totalTimeSC > 0) {
+              this.totalTimeSC--;
+              this.updateDisplaySC();
+          }
+          if (this.totalTimeSC <= 0) {
+              clearInterval(this.countdownSC);
+              this.countdownSC = null;
+              this.updateDisplaySC(); // Final update at zero
+          }
+      }, 1000);
+   }
+
+   resumeSC() {
+    if (!this.countdownSC) {
+      this.startSC();
     }
-    if (totalShotTime <= 0) {
-      clearInterval(countdownShotClock);
-      countdownShotClock = null;
-      totalShotTime = 0;
-      updateShotClockDisplay();
-    }
-  }, 1000);
-}
+    else {
+    this.isPausedSC = false;}
+  }
+  
+   pauseSC() {
+    this.isPausedSC = true;
+  }
 
-function pauseShotClock() {
-  isPausedShotClock = true;
-}
+   resetTo24SC() {
+    clearInterval(this.countdownSC);
+    this.countdownSC = null;
+    this.totalTimeSC = 24;
+    this.updateDisplaySC();
+  }
 
-function resetTo24() {
-  clearInterval(countdownShotClock);
-  countdownShotClock = null;
-  totalShotTime = 24;
-  updateShotClockDisplay();
-}
-
-function resetTo14() {
-  clearInterval(countdownShotClock);
-  countdownShotClock = null;
-  totalShotTime = 14;
-  updateShotClockDisplay();
-}
-
-function addSecondShotClock() {
-  totalShotTime += 1;
-  updateShotClockDisplay();
-}
-
-function subtractSecondShotClock() {
-  if (totalShotTime > 0) totalShotTime -= 1;
-  updateShotClockDisplay();
-}
-
-updateShotClockDisplay();
+   resetTo14SC() {
+    clearInterval(this.countdownSC);
+    this.countdownSC = null;
+    this.totalTimeSC = 14;
+    this.updateDisplaySC();
+  }
+  
+   addSecondSC() {
+    this.totalTimeSC += 1;
+    this.updateDisplaySC();
+  }
+  
+   subtractSecondSC() {
+    if (this.totalTimeSC >= 1) this.totalTimeSC -= 1;
+    else this.totalTimeSC = 0;
+    this.updateDisplaySC();
+  }
+  }
+  
+  export default ShotClock;

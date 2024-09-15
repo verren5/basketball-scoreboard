@@ -1,7 +1,11 @@
 import Timer from './timer.js';
+import ShotClock from './shot-clock.js';
 
 const timerDisplay = document.getElementById('timerDisp');
 const timer = new Timer(timerDisplay); // Create a timer instance
+
+const shotClockDisplay = document.getElementById('shotClockDisp'); // This is the display element for the shot clock
+const shotClock = new ShotClock(shotClockDisplay); // Create a shot clock instance
 
 const socket = new WebSocket(`ws://${window.location.host}`);
 
@@ -48,6 +52,7 @@ socket.addEventListener('message', (event) => {
                     document.getElementById('team2-score').innerText = data.team2Score;
                 }
 
+                // timer
                 if (data.type == 'start') {
                     timer.startTimer();
                 }
@@ -71,6 +76,29 @@ socket.addEventListener('message', (event) => {
                 }
                 if (data.type == 'subtractSecond') {
                     timer.subtractSecond();
+                }
+
+                // shotclock
+                if (data.type == 'startSC') {
+                    shotClock.startSC();
+                }
+                if (data.type == 'pauseSC') {
+                    shotClock.pauseSC();
+                }
+                if (data.type == 'resumeSC') {
+                    shotClock.resumeSC();
+                }
+                if (data.type == 'resetTo24SC') {
+                    shotClock.resetTo24SC();
+                }
+                if (data.type == 'resetTo14SC') {
+                    shotClock.resetTo14SC();
+                }
+                if (data.type == 'addSecondSC') {
+                    shotClock.addSecondSC();
+                }
+                if (data.type == 'subtractSecondSC') {
+                    shotClock.subtractSecondSC();
                 }
             } catch (error) {
                 console.error('Error parsing message:', error);

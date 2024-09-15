@@ -263,3 +263,31 @@ document.getElementById('subtractSecond').addEventListener('click', () => {
     socket.send(JSON.stringify({ type: 'subtractSecond' })); 
 });
 
+// shotclock
+document.getElementById('startSC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'startSC' }));
+});
+
+document.getElementById('pauseSC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'pauseSC' })); 
+});
+
+document.getElementById('resumeSC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resumeSC' })); 
+});
+
+document.getElementById('resetTo24SC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resetTo24SC' })); 
+});
+
+document.getElementById('resetTo14SC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resetTo14SC' })); 
+});
+
+document.getElementById('addSecondSC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'addSecondSC' })); 
+});
+
+document.getElementById('subtractSecondSC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'subtractSecondSC' })); 
+});
