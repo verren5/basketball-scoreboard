@@ -71,6 +71,6 @@ class ShotClock {
     else this.totalTimeSC = 0;
     this.updateDisplaySC();
   }
-  }
+}
   
   export default ShotClock;
