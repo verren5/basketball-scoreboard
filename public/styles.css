@@ -148,22 +148,72 @@ h4 {
     margin: 10px 0;
 }
 
-.scoreBoardSetter {
-    background-color: white;
+.teamSettings {
+    left: 0;
+    height: 30%;
+    align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.scoreBoardControls {
+    background-color: white;
+    left: 0;
+    height: 30%;
     align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreBoardSetter {
+    background-color: white;
     position: relative;
-    font-size: 2rem;
-    margin: 20px;
-    opacity: 0.88;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    z-index: 1;
-    max-width: 100%;
-    box-sizing: border-box;
+    left: 0;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.scoreBoardSetterA, .scoreBoardSetterB {
+    background-color: orange;
+    position: relative;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+}
+
+.scoreBoardMisc {
+    background-color: white;
+    position: relative;
+    padding: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.teamNameSetter {
+    background-color: white;
+    position: relative;
+    top: 20%;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeSettings {
+    left: 0;
+    height: 30%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }
 
 .timeSetter {
@@ -175,13 +225,18 @@ h4 {
     font-size: 2rem;
     margin: 20px;
     opacity: 0.88;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding: 1.5rem 1rem;
     z-index: 1;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+.containerTimer {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
 }
 
 .shotClockSetter {
@@ -200,6 +255,14 @@ h4 {
     z-index: 1;
     max-width: 100%;
     box-sizing: border-box;
+}
+
+.containerSC {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    align-items: center;
 }
 
 .buttons {
