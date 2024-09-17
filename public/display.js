@@ -7,7 +7,7 @@ const timer = new Timer(timerDisplay); // Create a timer instance
 const shotClockDisplay = document.getElementById('shotClockDisp'); // This is the display element for the shot clock
 const shotClock = new ShotClock(shotClockDisplay); // Create a shot clock instance
 
-const socket = new WebSocket(`ws://${window.location.host}`);
+const socket = new WebSocket(`wss://${window.location.host}`);
 
 socket.onopen = () => {
     console.log('WebSocket connection established in display page');
