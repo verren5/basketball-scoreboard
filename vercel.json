@@ -8,8 +8,16 @@
     ],
     "routes": [
       {
+        "src": "/",
+        "dest": "/public/display.html"
+      },
+      {
+        "src": "/control",
+        "dest": "/public/control.html"
+      },
+      {
         "src": "/(.*)",
-        "dest": "public/$1"
+        "dest": "/public/$1"
       }
     ]
   }
