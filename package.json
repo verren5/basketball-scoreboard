@@ -2,9 +2,9 @@
   "name": "basketball-scoreboard",
   "version": "1.0.0",
   "description": "A basketball Scoreboard Desktop",
-  "main": "script.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node script.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -17,8 +17,8 @@
   },
   "homepage": "https://github.com/verren5/basketball-scoreboard#readme",
   "dependencies": {
-    "exceljs": "^4.4.0",
-    "express": "^4.19.2"
+    "express": "^4.20.0",
+    "ws": "^8.18.0"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",
@@ -27,5 +27,6 @@
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4"
-  }
+  },
+  "keywords": []
 }

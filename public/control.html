@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basketball Scoreboard Controls</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="header">Controls</div>
+    <div class="other">
+      <div class="buttons">
+
+        <div class="teamSettings">
+          <div class="scoreBoardControls">
+            <div class="scoreBoardSetter">
+              <div class="scoreBoardSetterA">
+                <h2>Team A</h2>
+                <button id="add-team1-point">+1 Point</button>
+                <button id="subtract-team1-point">-1 Point</button>
+              </div>
+              <div class="scoreBoardSetterB">
+                <h2>Team B</h2>
+                <button id="add-team2-point">+1 Point</button>
+                <button id="subtract-team2-point">-1 Point</button>
+              </div>
+            </div>
+            <div class="scoreBoardMisc">
+              <button id="resetScore" onclick="resetScore()" style="background-color: red; color: white;">Reset Score</button>
+              <button id="exportScoreboard" onclick="exportScoreboard()">Export Scoreboard</button>
+            </div>
+          </div>
+          <div class="teamNameSetter">
+            <h2>Set Teams</h2>
+            <div class="nameContainer"> 
+              <div class="team1Setter">
+                <input
+                  type="text"
+                  id="team1-name-input"
+                  placeholder="Team 1 Name"
+                />
+                <button id="update-team1-name" onclick="updateTeamName(1)">
+                  Update Team 1 Name
+                </button>
+              </div>
+              <div class="team2Setter">
+                <input
+                  type="text"
+                  id="team2-name-input"
+                  placeholder="Team 2 Name"
+                />
+                <button id="update-team2-name" onclick="updateTeamName(2)">
+                  Update Team 2 Name
+                </button>
+              </div>
+            </div>
+            <button id="resetTeamName" onclick="resetTeamName()" style="background-color: red; color: white;">
+              Reset Team Names
+            </button>
+          </div>
+        </div>
+
+       <div class="timeSettings">
+        <div class="timeSetter">
+          <h2>Timer</h2>
+          <div class="containerTimer">
+            <button id="startButton" style="background-color: green; color: white;">Start Timer</button>
+            <button id="resumeButton">Resume Timer</button>
+            <button id="pauseButton">Pause Timer</button>
+            <button id="resetButton" style="background-color: red; color: white;">Reset Timer</button>
+          </div>
+          <div class="containerTimer">
+            <button id="addMinute">+1 Min</button>
+            <button id="subtractMinute">-1 Min</button>
+            <button id="addSecond">+1 Sec</button>
+            <button id="subtractSecond">-1 Sec</button>
+          </div>
+        </div>
+        <div class="shotClockSetter">
+          <h2>Shotclock</h2>
+          <div class="containerSC">
+            <button id="startSC" style="background-color: green; color: white;">Start Shot Clock</button>
+            <button id="resumeSC">Resume Shot Clock</button>
+            <button id="pauseSC">Pause Shot Clock</button>
+          </div>
+          <div class="containerSC">
+            <button id="resetTo24SC" style="background-color: red; color: white;">Reset to 24s</button>
+            <button id="resetTo14SC" style="background-color: red; color: white;">Reset to 14s</button>
+            <button id="addSecondSC">+1 Sec</button>
+            <button id="subtractSecondSC">-1 Sec</button>
+          </div>
+        </div>
+       </div>
+
+      </div>
+    </div>
+    <!--ExcelJS Licensed under the MIT License-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>
+    <script src="control.js"></script>
+  </body>
+</html>
