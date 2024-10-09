@@ -233,6 +233,16 @@ document.getElementById('resetTeamName').addEventListener('click', () => resetTe
 document.getElementById('resetScore').addEventListener('click', () => resetScore());
 document.getElementById('exportScoreboard').addEventListener('click', () =>exportScoreboard());
 
+//timer and shotclock
+document.getElementById('startBothButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'startBoth' }));
+});
+document.getElementById('pauseBothButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'pauseBoth' }));
+});
+document.getElementById('resumeBothButton').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resumeBoth' }));
+});
 
 //timer
 document.getElementById('startButton').addEventListener('click', () => {
@@ -282,6 +292,10 @@ document.getElementById('resetTo24SC').addEventListener('click', () => {
 
 document.getElementById('resetTo14SC').addEventListener('click', () => {
     socket.send(JSON.stringify({ type: 'resetTo14SC' })); 
+});
+
+document.getElementById('resetTo12SC').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'resetTo12SC' })); 
 });
 
 document.getElementById('addSecondSC').addEventListener('click', () => {
