@@ -52,6 +52,20 @@ socket.addEventListener('message', (event) => {
                     document.getElementById('team2-score').innerText = data.team2Score;
                 }
 
+                //timer and shotclock
+                if (data.type == 'startBoth') {
+                    timer.startTimer();
+                    shotClock.startSC();
+                }
+                if (data.type == 'pauseBoth') {
+                    timer.pauseTimer();
+                    shotClock.pauseSC();
+                }
+                if (data.type == 'resumeBoth') {
+                    timer.resumeTimer();
+                    shotClock.resumeSC();
+                }
+
                 // timer
                 if (data.type == 'start') {
                     timer.startTimer();
@@ -93,6 +107,9 @@ socket.addEventListener('message', (event) => {
                 }
                 if (data.type == 'resetTo14SC') {
                     shotClock.resetTo14SC();
+                }
+                if (data.type == 'resetTo12SC') {
+                    shotClock.resetTo12SC();
                 }
                 if (data.type == 'addSecondSC') {
                     shotClock.addSecondSC();
