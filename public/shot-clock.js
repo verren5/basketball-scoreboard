@@ -60,6 +60,13 @@ class ShotClock {
     this.totalTimeSC = 14;
     this.updateDisplaySC();
   }
+
+  resetTo12SC() {
+    clearInterval(this.countdownSC);
+    this.countdownSC = null;
+    this.totalTimeSC = 12;
+    this.updateDisplaySC();
+  }
   
    addSecondSC() {
     this.totalTimeSC += 1;
