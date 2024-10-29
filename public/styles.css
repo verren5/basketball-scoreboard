@@ -315,6 +315,11 @@ input {
     border: 3px solid #2E3089;
     margin: 5px;
 }
+.controller-button {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
 
 @font-face {
     font-family: 'Ozone';

@@ -243,6 +243,12 @@ document.getElementById('pauseBothButton').addEventListener('click', () => {
 document.getElementById('resumeBothButton').addEventListener('click', () => {
     socket.send(JSON.stringify({ type: 'resumeBoth' }));
 });
+document.getElementById('startResetBothButtonTo24').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'startResetBothTo24' }));
+});
+document.getElementById('startResetBothButtonTo12').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'startResetBothTo12' }));
+});
 
 //timer
 document.getElementById('startButton').addEventListener('click', () => {

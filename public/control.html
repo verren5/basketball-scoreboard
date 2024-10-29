@@ -10,7 +10,6 @@
     <div class="header">Controls</div>
     <div class="other">
       <div class="buttons">
-
         <div class="teamSettings">
           <div class="scoreBoardControls">
             <div class="scoreBoardSetter">
@@ -26,13 +25,21 @@
               </div>
             </div>
             <div class="scoreBoardMisc">
-              <button id="resetScore" onclick="resetScore()" style="background-color: red; color: white;">Reset Score</button>
-              <button id="exportScoreboard" onclick="exportScoreboard()">Export Scoreboard</button>
+              <button
+                id="resetScore"
+                onclick="resetScore()"
+                style="background-color: red; color: white"
+              >
+                Reset Score
+              </button>
+              <button id="exportScoreboard" onclick="exportScoreboard()">
+                Export Scoreboard
+              </button>
             </div>
           </div>
           <div class="teamNameSetter">
             <h2>Set Teams</h2>
-            <div class="nameContainer"> 
+            <div class="nameContainer">
               <div class="team1Setter">
                 <input
                   type="text"
@@ -54,54 +61,116 @@
                 </button>
               </div>
             </div>
-            <button id="resetTeamName" onclick="resetTeamName()" style="background-color: red; color: white;">
+            <button
+              id="resetTeamName"
+              onclick="resetTeamName()"
+              style="background-color: red; color: white"
+            >
               Reset Team Names
             </button>
           </div>
         </div>
 
-       <div class="timeSettings">
-        <div class="timerAndSCSetter">
-          <h2>Timer & Shotclock</h2>
-          <div class="containerTimerAndSC">
-            <button id="startBothButton" style="background-color: green; color: white;">Start</button>
-            <button id="pauseBothButton" style="background-color: red; color: white;">Pause</button>
-            <button id="resumeBothButton">Resume</button>
+        <div class="timeSettings">
+          <div class="timerAndSCSetter">
+            <h2>Timer & Shotclock</h2>
+            <div class="containerTimerAndSC">
+              <button
+                id="startBothButton"
+                style="background-color: green; color: white"
+              >
+                Start
+              </button>
+              <button
+                id="pauseBothButton"
+                style="background-color: red; color: white"
+              >
+                Pause
+              </button>
+              <button id="resumeBothButton">Resume</button>
+              <button
+                id="startResetBothButtonTo24"
+                style="background-color: #93e1d8; color: black"
+              >
+                Start & Reset to 24s
+              </button>
+              <button
+                id="startResetBothButtonTo12"
+                style="background-color: #FFA500; color: black"
+              >
+                Start & Reset to 12s
+              </button>
+            </div>
+          </div>
+          <div class="shotClockSetter">
+            <h2>Shotclock</h2>
+            <div class="containerSC">
+              <button
+                id="startSC"
+                style="background-color: green; color: white"
+              >
+                Start Shot Clock
+              </button>
+              <button id="resumeSC">Resume Shot Clock</button>
+              <button id="pauseSC">Pause Shot Clock</button>
+            </div>
+            <div class="containerSC">
+              <button
+                id="resetTo24SC"
+                style="background-color: red; color: white"
+              >
+                Reset to 24s
+              </button>
+              <button
+                id="resetTo14SC"
+                style="background-color: #0bb5ff; color: white"
+              >
+                Reset to 14s
+              </button>
+              <button
+                id="resetTo12SC"
+                style="background-color: violet; color: white"
+              >
+                Reset to 12s
+              </button>
+              <button id="addSecondSC">+1 Sec</button>
+              <button id="subtractSecondSC">-1 Sec</button>
+            </div>
+          </div>
+          <div class="timeSetter">
+            <h2>Timer</h2>
+            <div class="containerTimer">
+              <button
+                id="startButton"
+                style="background-color: green; color: white"
+              >
+                Start Timer
+              </button>
+              <button id="resumeButton">Resume Timer</button>
+              <button id="pauseButton">Pause Timer</button>
+              <button
+                id="resetButton"
+                style="background-color: red; color: white"
+              >
+                Reset Timer
+              </button>
+            </div>
+            <div class="containerTimer">
+              <button id="addMinute">+1 Min</button>
+              <button id="subtractMinute">-1 Min</button>
+              <button id="addSecond">+1 Sec</button>
+              <button id="subtractSecond">-1 Sec</button>
+            </div>
           </div>
         </div>
-        <div class="timeSetter">
-          <h2>Timer</h2>
-          <div class="containerTimer">
-            <button id="startButton" style="background-color: green; color: white;">Start Timer</button>
-            <button id="resumeButton">Resume Timer</button>
-            <button id="pauseButton">Pause Timer</button>
-            <button id="resetButton" style="background-color: red; color: white;">Reset Timer</button>
-          </div>
-          <div class="containerTimer">
-            <button id="addMinute">+1 Min</button>
-            <button id="subtractMinute">-1 Min</button>
-            <button id="addSecond">+1 Sec</button>
-            <button id="subtractSecond">-1 Sec</button>
-          </div>
-        </div>
-        <div class="shotClockSetter">
-          <h2>Shotclock</h2>
-          <div class="containerSC">
-            <button id="startSC" style="background-color: green; color: white;">Start Shot Clock</button>
-            <button id="resumeSC">Resume Shot Clock</button>
-            <button id="pauseSC">Pause Shot Clock</button>
-          </div>
-          <div class="containerSC">
-            <button id="resetTo24SC" style="background-color: red; color: white;">Reset to 24s</button>
-            <button id="resetTo14SC" style="background-color: #0BB5FF; color: white;">Reset to 14s</button>
-            <button id="resetTo12SC" style="background-color: violet; color: white;">Reset to 12s</button>
-            <button id="addSecondSC">+1 Sec</button>
-            <button id="subtractSecondSC">-1 Sec</button>
-          </div>
-        </div>
-       </div>
-
       </div>
+      <a href="./display.html" target="_blank">
+        <button
+          style="background-color: #93E1D8; color: black"
+          target="blank"
+        >
+          Scoreboard
+        </button>
     </div>
     <!--ExcelJS Licensed under the MIT License-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js"></script>

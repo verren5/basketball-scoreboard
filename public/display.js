@@ -65,6 +65,37 @@ socket.addEventListener('message', (event) => {
                     timer.resumeTimer();
                     shotClock.resumeSC();
                 }
+                if (data.type == 'startResetBothTo24') {
+                    // Button to start both the timer and shot clock, and reset both when clicked again.
+                    
+                    if (!timer.countdown && !shotClock.countdownSC){
+                        timer.startTimer();
+                        shotClock.startSC();
+                }
+                else {
+                    timer.pauseTimer();
+                    timer.resetTimer();
+                    shotClock.pauseSC();
+                    shotClock.resetTo24SC();
+                }
+                       
+                }
+                if (data.type == 'startResetBothTo12') {
+                    // Button to start both the timer and shot clock, and reset both when clicked again.
+                    
+                    if (!timer.countdown && !shotClock.countdownSC){
+                        timer.startTimer();
+                        shotClock.startSC();
+                }
+                else {
+                    timer.pauseTimer();
+                    timer.resetTimer();
+                    shotClock.pauseSC();
+                    shotClock.resetTo12SC();
+                }
+                       
+                }
+                
 
                 // timer
                 if (data.type == 'start') {
