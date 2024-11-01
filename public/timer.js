@@ -44,20 +44,20 @@ constructor(displayElement) {
     console.log('Timer not started. Countdown running or totalTime <= 0');
     console.log ("totalTime: " + this.totalTime + "countdown: " + this.countdown); // check totaltime and countdown
     return;
-}
-console.log('Timer started');
-this.isPaused = false;
-this.countdown = setInterval(() => {
-    if (!this.isPaused && this.totalTime > 0) {
-        this.totalTime--;
-        this.updateDisplay();
-    }
-    if (this.totalTime <= 0) {
-        clearInterval(this.countdown);
-        this.countdown = null;
-        this.updateDisplay(); // Final update at zero
-    }
-}, 1000);
+  }
+  console.log('Timer started');
+  this.isPaused = false;
+  this.countdown = setInterval(() => {
+      if (!this.isPaused && this.totalTime > 0) {
+          this.totalTime--;
+          this.updateDisplay();
+      }
+      if (this.totalTime <= 0) {
+          clearInterval(this.countdown);
+          this.countdown = null;
+          this.updateDisplay(); // Final update at zero
+      }
+  }, 1000);
 }
  resumeTimer() {
   if (!this.countdown) {

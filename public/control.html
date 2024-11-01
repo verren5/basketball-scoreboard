@@ -73,9 +73,10 @@
 
         <div class="timeSettings">
           <div class="timerAndSCSetter">
-            <h2>Timer & Shotclock</h2>
+            <h2>Hotbar</h2>
             <div class="containerTimerAndSC">
-              <button
+              <button id="toggleBothButton">Start/Pause Both</button>
+              <!-- <button
                 id="startBothButton"
                 style="background-color: green; color: white"
               >
@@ -87,18 +88,26 @@
               >
                 Pause
               </button>
-              <button id="resumeBothButton">Resume</button>
+              <button id="resumeBothButton">Resume</button> -->
+              <button id="pauseSC">Pause SC</button>
+              <button id="resumeSC">Resume SC</button>
               <button
                 id="startResetBothButtonTo24"
-                style="background-color: #93e1d8; color: black"
+                style="background-color: red; color: white"
               >
-                Start & Reset to 24s
+                Reset to 24s
+              </button>
+              <button
+                id="startResetBothButtonTo14"
+                style="background-color: #0bb5ff; color: white"
+              >
+                Reset to 14s
               </button>
               <button
                 id="startResetBothButtonTo12"
-                style="background-color: #FFA500; color: black"
+                style="background-color: violet; color: black"
               >
-                Start & Reset to 12s
+                Reset to 12s
               </button>
             </div>
           </div>
@@ -111,8 +120,8 @@
               >
                 Start Shot Clock
               </button>
-              <button id="resumeSC">Resume Shot Clock</button>
               <button id="pauseSC">Pause Shot Clock</button>
+              <button id="resumeSC">Resume Shot Clock</button>
             </div>
             <div class="containerSC">
               <button
@@ -146,8 +155,8 @@
               >
                 Start Timer
               </button>
-              <button id="resumeButton">Resume Timer</button>
               <button id="pauseButton">Pause Timer</button>
+              <button id="resumeButton">Resume Timer</button>
               <button
                 id="resetButton"
                 style="background-color: red; color: white"

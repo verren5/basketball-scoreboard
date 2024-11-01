@@ -222,6 +222,35 @@ async function exportScoreboard() {
     URL.revokeObjectURL(url);
 }
 
+let isFirstTime = true
+let timersRunning = false;
+// Event listener for the toggle button
+document.getElementById('toggleBothButton').addEventListener('click', () => {
+    if (isFirstTime && !timersRunning) {
+        socket.send(JSON.stringify({ type: 'startBoth' }));
+        timersRunning = true;
+        isFirstTime = false;
+    } else if (!isFirstTime && !timersRunning) {
+        socket.send(JSON.stringify({ type: 'resumeBoth' }));
+        timersRunning = true;
+    } else {
+        socket.send(JSON.stringify({ type: 'pauseBoth' }));
+        timersRunning = false;
+    }
+}); 
+
+// let shotclocksRunning = false;
+// document.getElementById('toggleBothButton').addEventListener('click', () => {
+//     if (!shotclocksRunning) {
+//         socket.send(JSON.stringify({ type: 'startSC' }));
+//         shotclocksRunning = true;
+//     } else {
+//         socket.send(JSON.stringify({ type: 'pauseSC' }));
+//         shotclocksRunning = false;
+//     }
+// }); 
+
+
 // Event listeners for buttons
 document.getElementById('add-team1-point').addEventListener('click', () => addPoint(1));
 document.getElementById('subtract-team1-point').addEventListener('click', () => removePoint(1));
@@ -234,17 +263,20 @@ document.getElementById('resetScore').addEventListener('click', () => resetScore
 document.getElementById('exportScoreboard').addEventListener('click', () =>exportScoreboard());
 
 //timer and shotclock
-document.getElementById('startBothButton').addEventListener('click', () => {
-    socket.send(JSON.stringify({ type: 'startBoth' }));
-});
-document.getElementById('pauseBothButton').addEventListener('click', () => {
-    socket.send(JSON.stringify({ type: 'pauseBoth' }));
-});
-document.getElementById('resumeBothButton').addEventListener('click', () => {
-    socket.send(JSON.stringify({ type: 'resumeBoth' }));
-});
+// document.getElementById('startBothButton').addEventListener('click', () => {
+//     socket.send(JSON.stringify({ type: 'startBoth' }));
+// });
+// document.getElementById('pauseBothButton').addEventListener('click', () => {
+//     socket.send(JSON.stringify({ type: 'pauseBoth' }));
+// });
+// document.getElementById('resumeBothButton').addEventListener('click', () => {
+//     socket.send(JSON.stringify({ type: 'resumeBoth' }));
+// });
 document.getElementById('startResetBothButtonTo24').addEventListener('click', () => {
     socket.send(JSON.stringify({ type: 'startResetBothTo24' }));
+});
+document.getElementById('startResetBothButtonTo14').addEventListener('click', () => {
+    socket.send(JSON.stringify({ type: 'startResetBothTo14' }));
 });
 document.getElementById('startResetBothButtonTo12').addEventListener('click', () => {
     socket.send(JSON.stringify({ type: 'startResetBothTo12' }));

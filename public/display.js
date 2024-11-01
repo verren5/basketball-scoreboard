@@ -66,36 +66,53 @@ socket.addEventListener('message', (event) => {
                     shotClock.resumeSC();
                 }
                 if (data.type == 'startResetBothTo24') {
-                    // Button to start both the timer and shot clock, and reset both when clicked again.
-                    
-                    if (!timer.countdown && !shotClock.countdownSC){
-                        timer.startTimer();
-                        shotClock.startSC();
-                }
-                else {
-                    timer.pauseTimer();
-                    timer.resetTimer();
+                    // Button to start both the timer and shot clock, and reset both when clicked again.  
+                // if (!timer.countdown && !shotClock.countdownSC){
+                //         timer.startTimer();
+                //         shotClock.startSC();
+                // }
+                // if (!shotClock.countdownSC) {
+                //     shotClock.startSC();
+                // }
+                // else {
+                //     //timer.pauseTimer();
+                //     //timer.resetTimer();
+                //     shotClock.pauseSC();
+                //     shotClock.resetTo24SC();
+                // }
                     shotClock.pauseSC();
                     shotClock.resetTo24SC();
+                    shotClock.startSC();   
                 }
-                       
+
+                if (data.type == 'startResetBothTo14') {
+                    shotClock.pauseSC();
+                    shotClock.resetTo14SC();
+                    shotClock.startSC();   
                 }
+
                 if (data.type == 'startResetBothTo12') {
                     // Button to start both the timer and shot clock, and reset both when clicked again.
-                    
-                    if (!timer.countdown && !shotClock.countdownSC){
-                        timer.startTimer();
-                        shotClock.startSC();
-                }
-                else {
-                    timer.pauseTimer();
-                    timer.resetTimer();
+                
+                // // if (!timer.countdown && !shotClock.countdownSC) {
+                // //     timer.startTimer();
+                // //     shotClock.startSC();
+                // // }
+                // if (!timer.countdown && !shotClock.countdownSC) {
+                //     //timer.startTimer();
+                //     shotClock.startSC();
+                // }
+                // else {
+                //     //timer.pauseTimer();
+                //     //timer.resetTimer();
+                //     shotClock.pauseSC();
+                //     shotClock.resetTo12SC();
+                // }
                     shotClock.pauseSC();
                     shotClock.resetTo12SC();
+                    shotClock.startSC();
                 }
-                       
-                }
-                
+            
 
                 // timer
                 if (data.type == 'start') {

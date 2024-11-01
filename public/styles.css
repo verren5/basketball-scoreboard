@@ -17,8 +17,8 @@ body {
     padding: 10px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 400px; /* Adjust width as needed */
-    height: 20%; /* Height of the box */
+    width: 600px; /* Adjust width as needed */
+    height: 25%; /* Height of the box */
     margin: 0px;
     z-index: 1; /* Keep above other content */
 }
@@ -30,11 +30,11 @@ body {
     justify-content: center;
     background-color: white; /* Box background color */
     border: 3px solid #2E3089; /* Box border */
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-    width: 60px; /* Adjust width as needed */
-    height: 40px; /* Height of the box */
+    width: 200px; /* Adjust width as needed */
+    height: 130px; /* Height of the box */
     margin: 0px;
     z-index: 1; /* Keep above other content */
 }
@@ -61,7 +61,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    gap: 100px;
     
 }
 
@@ -98,7 +98,7 @@ body {
 .time{
     text-align: center;
     color: black;
-    size: 160px;
+    size: 300px;
 }
 
 .shotClock {
@@ -113,7 +113,7 @@ body {
 }
 
 h1 {
-    font-size: 7rem;
+    font-size: 12rem;
     padding: 0;
     margin: 10px 0;
     font-family: 'Timessquare';
@@ -127,14 +127,14 @@ h2 {
 }
 
 h3 {
-    font-size: 10rem;
+    font-size: 15rem;
     padding: 0;
     margin: 10px 0;
     font-family: 'Timessquare'
 }
 
 h4 {
-    font-size: 6rem;
+    font-size: 15rem;
     font-family: 'Timessquare';
     margin: 0;
     padding: 0;

@@ -1,83 +1,91 @@
 
-class ShotClock {
+  class ShotClock {
 
-  constructor(displayElementSC) {
-    this.displayElementSC = displayElementSC;
-    this.totalTimeSC = 24;
-    this.countdownSC = null;
-    this.isPausedSC = false;
-  }
-  
-   updateDisplaySC() {
-    this.displayElementSC.textContent = this.totalTimeSC;
-  }
-  
-   startSC() {
-    if (this.countdownSC || this.totalTimeSC <= 0) {
-      console.log('Shotclock not started. CountdownSC running or totalTimeSC <= 0');
-      console.log ("totalTimeSC: " + this.totalTimeSC + "countdownSC: " + this.countdownSC); // check totaltimeSC and countdownSC
-      return;
-    }
-
-      console.log('ShotClock started');
-
+    constructor(displayElementSC) {
+      this.displayElementSC = displayElementSC;
+      this.totalTimeSC = 24;
+      this.countdownSC = null;
       this.isPausedSC = false;
-      this.countdownSC = setInterval(() => {
-          if (!this.isPausedSC && this.totalTimeSC > 0) {
-              this.totalTimeSC--;
-              this.updateDisplaySC();
-          }
-          if (this.totalTimeSC <= 0) {
-              clearInterval(this.countdownSC);
-              this.countdownSC = null;
-              this.updateDisplaySC(); // Final update at zero
-          }
-      }, 1000);
-   }
-
-   resumeSC() {
-    if (!this.countdownSC) {
-      this.startSC();
     }
-    else {
-    this.isPausedSC = false;}
-  }
-  
-   pauseSC() {
-    this.isPausedSC = true;
-  }
+    
+    updateDisplaySC() {
+      this.displayElementSC.textContent = this.totalTimeSC;
+    }
+    
+    startSC() {
+      if (this.countdownSC || this.totalTimeSC <= 0) {
+        console.log('Shotclock not started. CountdownSC running or totalTimeSC <= 0');
+        console.log ("totalTimeSC: " + this.totalTimeSC + "countdownSC: " + this.countdownSC); // check totaltimeSC and countdownSC
+        return;
+      }
 
-   resetTo24SC() {
-    clearInterval(this.countdownSC);
-    this.countdownSC = null;
-    this.totalTimeSC = 24;
-    this.updateDisplaySC();
-  }
+        console.log('ShotClock started');
 
-   resetTo14SC() {
-    clearInterval(this.countdownSC);
-    this.countdownSC = null;
-    this.totalTimeSC = 14;
-    this.updateDisplaySC();
-  }
+        this.isPausedSC = false;
+        this.countdownSC = setInterval(() => {
+            if (!this.isPausedSC && this.totalTimeSC > 0) {
+                this.totalTimeSC--;
+                this.updateDisplaySC();
+            }
+            if (this.totalTimeSC <= 0) {
+                clearInterval(this.countdownSC);
+                this.countdownSC = null;
+                this.updateDisplaySC(); // Final update at zero
+            }
+        }, 1000);
+    }
 
-  resetTo12SC() {
-    clearInterval(this.countdownSC);
-    this.countdownSC = null;
-    this.totalTimeSC = 12;
-    this.updateDisplaySC();
+    resumeSC() {
+      if (!this.countdownSC) {
+        this.startSC();
+      }
+      else {
+      this.isPausedSC = false;}
+    }
+    
+    pauseSC() {
+      this.isPausedSC = true;
+    }
+
+    // toggleSC() {
+    //   if (!this.countdownSC || this.isPausedSC) {
+    //       this.startSC();
+    //   } else {
+    //       this.stopSC();
+    //   }
+    // }
+
+    resetTo24SC() {
+      clearInterval(this.countdownSC);
+      this.countdownSC = null;
+      this.totalTimeSC = 24;
+      this.updateDisplaySC();
+    }
+
+    resetTo14SC() {
+      clearInterval(this.countdownSC);
+      this.countdownSC = null;
+      this.totalTimeSC = 14;
+      this.updateDisplaySC();
+    }
+
+    resetTo12SC() {
+      clearInterval(this.countdownSC);
+      this.countdownSC = null;
+      this.totalTimeSC = 12;
+      this.updateDisplaySC();
+    }
+    
+    addSecondSC() {
+      this.totalTimeSC += 1;
+      this.updateDisplaySC();
+    }
+    
+    subtractSecondSC() {
+      if (this.totalTimeSC >= 1) this.totalTimeSC -= 1;
+      else this.totalTimeSC = 0;
+      this.updateDisplaySC();
+    }
   }
-  
-   addSecondSC() {
-    this.totalTimeSC += 1;
-    this.updateDisplaySC();
-  }
-  
-   subtractSecondSC() {
-    if (this.totalTimeSC >= 1) this.totalTimeSC -= 1;
-    else this.totalTimeSC = 0;
-    this.updateDisplaySC();
-  }
-}
-  
-  export default ShotClock;
+    
+    export default ShotClock;
